@@ -1,4 +1,3 @@
-
 const references = document.querySelectorAll("li"); 
 const divOver = document.querySelectorAll("div#bar")
 console.log(divOver)
@@ -11,6 +10,12 @@ references.forEach(reference => {
 divOver.forEach(div =>{
     div.addEventListener("mouseover", hover)
 })
+div.Over.forEach(div =>{
+    div.addEventListener("mouseout", unHover)
+})
+function unHover(){
+    e.target.classList.add("inactive")
+}
 
 function hover(e){
     e.target.classList.toggle("isItSight");
