@@ -103,6 +103,11 @@ article main ul li div.isItSight{
     background-color: var(--Cyan);
     height: 30px;
     width: 100%;
+    display: flex;
+    color: var(--Very-pale-orange);
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 };
 
 article main ul li span{

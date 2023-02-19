@@ -1,16 +1,23 @@
-const references = document.querySelectorAll("li"); 
-const divOver = document.querySelectorAll("div#bar")
+const references = document.querySelector("ul"); 
+import {data} from '../data.js';
 
-references.forEach(reference => {
-    const div = document.createElement("div");
-    div.classList.add("inactive")
-    div.textContent = 52 ;
-    reference.insertAdjacentElement("afterbegin", div)
+data.forEach( day => {
+        const item = 
+            `
+            <div class="inactive">${day.amount}</div>
+            <div id="bar"></div>
+            <span>${day.day}</span>            
+            `
+        
+        const li = document.createElement('li');
+        li.innerHTML = item;
+        references.appendChild(li);
+
+        const bar = li.querySelector('#bar'); 
+        bar.addEventListener('mouseover', hover)
+        bar.addEventListener('mouseout', unHover)
 });
 
-divOver.forEach(div =>{
-    div.addEventListener("mouseover", hover)
-});
 
 function hover(e){
     const div = e.target.previousElementSibling;
@@ -18,9 +25,6 @@ function hover(e){
     div.classList.remove("inactive")
 }
 
-divOver.forEach(div =>{
-    div.addEventListener("mouseout", unHover)
-});
 
 function unHover(e){
     const div = e.target.previousElementSibling;
